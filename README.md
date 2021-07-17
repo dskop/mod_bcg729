@@ -17,13 +17,12 @@ This will have the side effect to support the FreeSWITCH project ;)
 
 Installation
 ============
-You need to have git on your build machine and internet access, since
+
+1. Install `libfreeswitch-dev` and `git` in addition to Freeswitch. You need to have internet access on your build machine, since
 the Makefile will try to checkout bcg729 sources and build them.
+2. Edit `Makefile` and edit `FS_INCLUDES`, `FS_MODULES` vars to point where your FreeSWITCH includes are and where you want to install the module.
+3. After, just type `make` and, if build completes without errors, `make install`. Or chain `make && make install`
+4. Edit `autoload_configs/modules.conf.xml` , comment out `mod_g729` and add `mod_bcg729`.
+5. Now restart your FreeSWITCH and you're done.
 
-Edit Makefile and edit FS_INCLUDES, FS_MODULES vars to point where
-your FreeSWITCH includes are and where you want to install the module.
 
-After, just type make and, if build completes without errors, make install .
-
-Edit autoload_configs/modules.conf.xml , comment out mod_g729 and add mod_bcg729 .
-Now restart your FreeSWITCH and you're done.
